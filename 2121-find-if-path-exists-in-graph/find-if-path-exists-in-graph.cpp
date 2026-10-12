@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void bfs(int start,vector<vector<int>>& adj, vector<bool>& vis){
+    void bfs(int start,vector<vector<int>>& adj, vector<bool>& vis, int end){
         queue<int>q;
         q.push(start);
 
@@ -12,6 +12,7 @@ public:
                 if(vis[adj[front][j]]==false){
                     vis[adj[front][j]]=true;
                     q.push(adj[front][j]);
+                    if(adj[front][j]==end) return;
                 }
             }
         }
@@ -28,7 +29,7 @@ public:
 
         vector<bool>vis(n,false);
         vis[start]=true;
-        bfs(start,adj,vis);
+        bfs(start,adj,vis,end);
 
         if(vis[end]==false) return false;
         return true;
