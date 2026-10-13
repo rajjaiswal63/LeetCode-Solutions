@@ -1,16 +1,13 @@
 class Solution {
 public:
     void bfs(pair<int,int>start,vector<vector<bool>>& vis, vector<vector<char>>& grid){
-        int i=start.first;
-        int j=start.second;
-
         int row = grid.size();
-    int column = grid[0].size();
+        int column = grid[0].size();
 
-        vis[i][j]=true;
+        vis[start.first][start.second] = true;
 
         queue<pair<int,int>>q;
-        q.push({i,j});
+        q.push(start);
 
         while(q.size()!=0){
             pair<int,int>front=q.front();
